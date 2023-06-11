@@ -12,7 +12,7 @@ const [tempQuote , setTempQuote] = React.useState('');
 
 async function populateQuote(){
    
- const request = await fetch('http://localhost:8000/dashboard' , {
+ const request = await fetch('https://master--luminous-boba-33ec90.netlify.app/dashboard' , {
     headers:{
         'x-access-token' : localStorage.getItem('token'),
 
@@ -48,7 +48,7 @@ async function populateQuote(){
     },[])
     async function updateQuote(e){
         e.preventDefault();
-        const request = await fetch('http://localhost:8000/dashboard' , {
+        const request = await fetch('https://master--luminous-boba-33ec90.netlify.app/dashboard' , {
             method: 'POST',
         headers:{
             'Content-Type': 'application/json',
