@@ -6,11 +6,18 @@ import jwt  from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
 const app = express();
-
+const PORT = process.env.PORT || 8000;
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect('mongodb://localhost:27017/mern-auth');
+ 
+
+mongoose.connect(`mongodb+srv://visitor:visitor@cluster0.n1iqnjw.mongodb.net/`,{
+    useUnifiedTopology:true,
+    useNewUrlParser:true
+}).then(()=> console.log("DataBase Connected")).catch((err)=>{
+    console.log(err);
+})
 
 app.post('/register', async (req, res) => {
     console.log(req.body);
@@ -44,7 +51,7 @@ app.post('/login', async (req, res) => {
             const token = jwt.sign({
                 name : user.name,
                 email : user.email
-            } , 'secret123')
+            } ,'secret123');
         res.json({status : 'ok' ,user : token , message : 'User logged in successfully'});
     }else{
         res.json({status : 'error' ,  user : false})
@@ -89,6 +96,6 @@ app.post('/dashboard', async (req, res) => {
 })
 
 
-app.listen(8000, () => {
-    console.log('Server starter on 8000');
+app.listen(PORT, () => {
+    console.log(`Server starter on ${PORT}`);
 })

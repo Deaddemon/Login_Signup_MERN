@@ -72,7 +72,7 @@ async function populateQuote(){
     }
     const handleLogoutClick = () => {
         localStorage.removeItem('token');
-        history('/home', { replace: true });
+        history('/', { replace: true });
     }
     return <div>
         <h1>Your Quote : {quote || 'NO quote found'}</h1>
