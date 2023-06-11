@@ -10,7 +10,7 @@ const Register = () => {
 
   async function registerUser(e){
     e.preventDefault();
-const response = await fetch('https://master--luminous-boba-33ec90.netlify.app/register' , {
+const response = await fetch('https://login-signup-mern-backend.onrender.com/register' , {
   method: 'POST',
 headers:{
     'Content-Type': 'application/json',

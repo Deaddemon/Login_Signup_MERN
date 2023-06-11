@@ -8,7 +8,7 @@ const Login = () => {
 
   async function loginUser(e){
     e.preventDefault();
-const response = await fetch('https://master--luminous-boba-33ec90.netlify.app/login' , {
+const response = await fetch('https://login-signup-mern-backend.onrender.com/login' , {
   method: 'POST',
 headers:{
     'Content-Type': 'application/json',
